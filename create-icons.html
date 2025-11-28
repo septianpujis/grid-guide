@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Generator - Grid Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    canvas {
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      display: block;
+    }
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #5568d3;
+    }
+    .instructions {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Grid Guide - Icon Generator</h1>
+    <div class="instructions">
+      <p><strong>Instructions:</strong></p>
+      <ol>
+        <li>Click "Generate Icons" to create all icon sizes</li>
+        <li>Right-click each canvas and "Save image as..."</li>
+        <li>Save as icon16.png, icon48.png, icon128.png in the icons/ folder</li>
+      </ol>
+    </div>
+    
+    <canvas id="icon16" width="16" height="16"></canvas>
+    <button onclick="downloadIcon('icon16', 'icon16.png')">Download 16x16</button>
+    
+    <canvas id="icon48" width="48" height="48"></canvas>
+    <button onclick="downloadIcon('icon48', 'icon48.png')">Download 48x48</button>
+    
+    <canvas id="icon128" width="128" height="128"></canvas>
+    <button onclick="downloadIcon('icon128', 'icon128.png')">Download 128x128</button>
+    
+    <button onclick="generateAll()" style="background: #4caf50; margin-top: 20px; display: block; width: 100%;">Generate All Icons</button>
+  </div>
+
+  <script>
+    function drawIcon(canvas, size) {
+      const ctx = canvas.getContext('2d');
+      const scale = size / 128;
+      
+      // Clear canvas
+      ctx.clearRect(0, 0, size, size);
+      
+      // Background gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#667eea');
+      gradient.addColorStop(1, '#764ba2');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, size, size);
+      
+      // Draw grid lines
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = Math.max(1, 2 * scale);
+      
+      // Vertical lines
+      for (let i = 1; i < 4; i++) {
+        const x = (size / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(x, size * 0.2);
+        ctx.lineTo(x, size * 0.8);
+        ctx.stroke();
+      }
+      
+      // Horizontal lines
+      for (let i = 1; i < 4; i++) {
+        const y = (size / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(size * 0.2, y);
+        ctx.lineTo(size * 0.8, y);
+        ctx.stroke();
+      }
+    }
+    
+    function downloadIcon(canvasId, filename) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+    
+    function generateAll() {
+      drawIcon(document.getElementById('icon16'), 16);
+      drawIcon(document.getElementById('icon48'), 48);
+      drawIcon(document.getElementById('icon128'), 128);
+      alert('All icons generated! Click each download button to save them.');
+    }
+    
+    // Generate on load
+    window.onload = generateAll;
+  </script>
+</body>
+</html>
+

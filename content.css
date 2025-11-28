@@ -1,0 +1,34 @@
+/* Grid Guide Overlay Styles */
+#grid-guide-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.grid-guide-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+.grid-guide-column {
+  flex: 0 0 auto;
+  height: 100%;
+  background: rgba(59, 130, 246, 0.3);
+  border-left: 1px solid rgba(59, 130, 246, 0.5);
+  border-right: 1px solid rgba(59, 130, 246, 0.5);
+  box-sizing: border-box;
+}
+
+/* Ensure grid doesn't interfere with page interactions */
+#grid-guide-overlay * {
+  pointer-events: none !important;
+}
+

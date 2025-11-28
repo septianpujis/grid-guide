@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Guide</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 Grid Guide</h1>
+      <p class="subtitle">Visualize grid systems on any webpage</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="config">Configuration</button>
+      <button class="tab-btn" data-tab="presets">Presets</button>
+      <button class="tab-btn" data-tab="saved">Saved</button>
+    </div>
+
+    <!-- Configuration Tab -->
+    <div class="tab-content active" id="config-tab">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="container-width">
+            <span>Total (px)</span>
+            <span class="info">Max width of container</span>
+          </label>
+          <input type="number" id="container-width" value="1200" min="0" step="1">
+        </div>
+
+        <div class="form-group">
+          <label for="columns">
+            <span>Columns</span>
+            <span class="info">Number of grid columns</span>
+          </label>
+          <input type="number" id="columns" value="12" min="1" max="24" step="1">
+        </div>
+
+        <div class="form-group">
+          <label for="gutter">
+            <span>Gutter (px)</span>
+            <span class="info">Spacing between columns</span>
+          </label>
+          <input type="number" id="gutter" value="30" min="0" step="1">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="color-picker">
+          <span>Grid Color</span>
+          <span class="info">Color of grid lines</span>
+        </label>
+        <div class="color-picker-module">
+          <div class="color-input-wrapper">
+            <div class="color-preview" id="color-preview"></div>
+            <input type="text" id="color-text" value="#3b82f6" placeholder="#3b82f6">
+          </div>
+          <div class="color-swatches">
+            <button type="button" class="color-swatch" data-color="#0d6efd" style="background:#0d6efd" aria-label="Bootstrap blue"></button>
+            <button type="button" class="color-swatch" data-color="#3b82f6" style="background:#3b82f6" aria-label="Tailwind blue"></button>
+            <button type="button" class="color-swatch" data-color="#00d1b2" style="background:#00d1b2" aria-label="Bulma teal"></button>
+            <button type="button" class="color-swatch" data-color="#1779ba" style="background:#1779ba" aria-label="Foundation blue"></button>
+            <button type="button" class="color-swatch" data-color="#f97316" style="background:#f97316" aria-label="Orange"></button>
+            <button type="button" class="color-swatch" data-color="#ec4899" style="background:#ec4899" aria-label="Pink"></button>
+          </div>
+          <details class="color-advanced">
+            <summary>Fine-tune color</summary>
+            <div class="color-sliders">
+              <label class="slider-label" for="color-hue">
+                <span>Hue</span>
+                <span id="hue-value">211°</span>
+              </label>
+              <input type="range" id="color-hue" min="0" max="360" value="211">
+              <label class="slider-label" for="color-saturation">
+                <span>Saturation</span>
+                <span id="saturation-value">92%</span>
+              </label>
+              <input type="range" id="color-saturation" min="0" max="100" value="92">
+              <label class="slider-label" for="color-lightness">
+                <span>Lightness</span>
+                <span id="lightness-value">60%</span>
+              </label>
+              <input type="range" id="color-lightness" min="0" max="100" value="60">
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="opacity">
+          <span>Opacity</span>
+          <span class="info">Grid overlay opacity</span>
+        </label>
+        <input type="range" id="opacity" min="0.1" max="1" step="0.1" value="0.3">
+        <span class="range-value" id="opacity-value">30%</span>
+      </div>
+
+      <div class="button-group">
+        <button id="launch-btn" class="btn btn-primary">
+          <span>🚀 Launch Grid</span>
+        </button>
+        <button id="clear-btn" class="btn btn-secondary">
+          <span>Clear</span>
+        </button>
+      </div>
+
+      <div class="save-section">
+        <input type="text" id="config-name" placeholder="Configuration name">
+        <button id="save-btn" class="btn btn-outline">💾 Save</button>
+      </div>
+    </div>
+
+    <!-- Presets Tab -->
+    <div class="tab-content" id="presets-tab">
+      <div class="presets-grid">
+        <div class="preset-card" data-preset="bootstrap">
+          <div class="preset-icon">📦</div>
+          <h3>Bootstrap</h3>
+          <p>Responsive containers</p>
+          <div class="preset-details">
+            <span>12 columns • 16-30px gutter</span>
+            <span>Color: #0d6efd</span>
+          </div>
+          <div class="breakpoint-list">
+            <button class="breakpoint-btn" data-breakpoint="xs">XS • 360px</button>
+            <button class="breakpoint-btn" data-breakpoint="sm">SM • 540px</button>
+            <button class="breakpoint-btn" data-breakpoint="md">MD • 720px</button>
+            <button class="breakpoint-btn" data-breakpoint="lg">LG • 960px</button>
+            <button class="breakpoint-btn" data-breakpoint="xl">XL • 1140px</button>
+          </div>
+        </div>
+        <div class="preset-card" data-preset="tailwind">
+          <div class="preset-icon">🎨</div>
+          <h3>Tailwind</h3>
+          <p>Default screens</p>
+          <div class="preset-details">
+            <span>12 columns • 16-32px gutter</span>
+            <span>Color: #3b82f6</span>
+          </div>
+          <div class="breakpoint-list">
+            <button class="breakpoint-btn" data-breakpoint="xs">XS • 360px</button>
+            <button class="breakpoint-btn" data-breakpoint="sm">SM • 640px</button>
+            <button class="breakpoint-btn" data-breakpoint="md">MD • 768px</button>
+            <button class="breakpoint-btn" data-breakpoint="lg">LG • 1024px</button>
+            <button class="breakpoint-btn" data-breakpoint="xl">XL • 1280px</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Saved Configurations Tab -->
+    <div class="tab-content" id="saved-tab">
+      <div id="saved-configs" class="saved-configs">
+        <p class="empty-state">No saved configurations yet</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

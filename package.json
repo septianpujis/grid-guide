@@ -1,0 +1,22 @@
+{
+  "name": "grid-guide",
+  "version": "1.0.0",
+  "description": "Chrome extension to visualize grid column systems on webpages",
+  "scripts": {
+    "generate-icons": "node generate-icons.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "grid",
+    "bootstrap",
+    "tailwind",
+    "bulma",
+    "developer-tools"
+  ],
+  "author": "",
+  "license": "MIT",
+  "optionalDependencies": {
+    "canvas": "^2.11.2"
+  }
+}
+
