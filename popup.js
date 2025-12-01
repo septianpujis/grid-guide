@@ -21,6 +21,17 @@ const presets = {
       lg: { label: 'LG', containerWidth: 1024, columns: 12, gutter: 32 },
       xl: { label: 'XL', containerWidth: 1280, columns: 12, gutter: 32 }
     }
+  },
+  commsult: {
+    color: '#3b3fea',
+    opacity: 0.3,
+    breakpoints: {
+      xs: { label: 'XS', containerWidth: 327, columns: 8, gutter: 16 },
+      sm: { label: 'SM', containerWidth: 536, columns: 8, gutter: 16 },
+      md: { label: 'MD', containerWidth: 672, columns: 12, gutter: 16 },
+      lg: { label: 'LG', containerWidth: 896, columns: 12, gutter: 24 },
+      xl: { label: 'XL', containerWidth: 1200, columns: 12, gutter: 24 }
+    }
   }
 };
 

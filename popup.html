@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grid Guide</title>
+  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="variables.css">
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
@@ -21,18 +23,20 @@
 
     <!-- Configuration Tab -->
     <div class="tab-content active" id="config-tab">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="container-width">
-            <span>Total (px)</span>
-            <span class="info">Max width of container</span>
-          </label>
-          <input type="number" id="container-width" value="1200" min="0" step="1">
-        </div>
+      <div class="form-group">
+        <label for="container-width">
+          <span>Total (px)</span>
+          <span class="hint-icon" data-hint="Max width of container">ℹ️</span>
+          <span class="info">Max width of container</span>
+        </label>
+        <input type="number" id="container-width" value="1200" min="0" step="1">
+      </div>
 
+      <div class="form-grid">
         <div class="form-group">
           <label for="columns">
             <span>Columns</span>
+            <span class="hint-icon" data-hint="Number of grid columns">ℹ️</span>
             <span class="info">Number of grid columns</span>
           </label>
           <input type="number" id="columns" value="12" min="1" max="24" step="1">
@@ -41,6 +45,7 @@
         <div class="form-group">
           <label for="gutter">
             <span>Gutter (px)</span>
+            <span class="hint-icon" data-hint="Spacing between columns">ℹ️</span>
             <span class="info">Spacing between columns</span>
           </label>
           <input type="number" id="gutter" value="30" min="0" step="1">
@@ -50,12 +55,13 @@
       <div class="form-group">
         <label for="color-picker">
           <span>Grid Color</span>
+          <span class="hint-icon" data-hint="Color of grid lines">ℹ️</span>
           <span class="info">Color of grid lines</span>
         </label>
         <div class="color-picker-module">
           <div class="color-input-wrapper">
             <div class="color-preview" id="color-preview"></div>
-            <input type="text" id="color-text" value="#3b82f6" placeholder="#3b82f6">
+            <input type="text" id="color-text" value="#3b3fea" placeholder="#3b3fea">
           </div>
           <div class="color-swatches">
             <button type="button" class="color-swatch" data-color="#0d6efd" style="background:#0d6efd" aria-label="Bootstrap blue"></button>
@@ -91,6 +97,7 @@
       <div class="form-group">
         <label for="opacity">
           <span>Opacity</span>
+          <span class="hint-icon" data-hint="Grid overlay opacity">ℹ️</span>
           <span class="info">Grid overlay opacity</span>
         </label>
         <input type="range" id="opacity" min="0.1" max="1" step="0.1" value="0.3">
@@ -145,6 +152,22 @@
             <button class="breakpoint-btn" data-breakpoint="md">MD • 768px</button>
             <button class="breakpoint-btn" data-breakpoint="lg">LG • 1024px</button>
             <button class="breakpoint-btn" data-breakpoint="xl">XL • 1280px</button>
+          </div>
+        </div>
+        <div class="preset-card" data-preset="commsult">
+          <div class="preset-icon">💼</div>
+          <h3>Commsult</h3>
+          <p>Custom grid system</p>
+          <div class="preset-details">
+            <span>8-12 columns • 16-24px gutter</span>
+            <span>Color: #3b3fea</span>
+          </div>
+          <div class="breakpoint-list">
+            <button class="breakpoint-btn" data-breakpoint="xs">XS • 327px</button>
+            <button class="breakpoint-btn" data-breakpoint="sm">SM • 536px</button>
+            <button class="breakpoint-btn" data-breakpoint="md">MD • 672px</button>
+            <button class="breakpoint-btn" data-breakpoint="lg">LG • 896px</button>
+            <button class="breakpoint-btn" data-breakpoint="xl">XL • 1200px</button>
           </div>
         </div>
       </div>
