@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Grid Guide",
   "version": "1.0.0",
-  "description": "Show grid column systems (Bootstrap, Tailwind, Bulma) on any webpage with customizable settings",
+  "description": "Show grid column systems (Bootstrap, Tailwind, Commsult) on any webpage with customizable settings",
   "permissions": [
     "activeTab",
     "storage"
